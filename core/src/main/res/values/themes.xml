@@ -13,8 +13,8 @@
     <!-- Стиль для полей ввода -->
     <style name="CourseHubEditText" parent="Widget.Material3.TextInputLayout.OutlinedBox">
         <item name="boxBackgroundColor">@color/input_background</item>
-        <item name="boxStrokeColor">#919295</item>
-        <item name="hintTextColor">#919295</item>
+        <item name="boxStrokeColor">@color/hint_color</item>
+        <item name="hintTextColor">@color/hint_color</item>
         <item name="android:textColorHint">@color/hint_color</item>
         <item name="android:textColor">@color/white</item>
         <item name="boxCornerRadiusTopStart">30dp</item>
@@ -40,5 +40,19 @@
         <item name="android:textColor">@color/hint_color</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Стиль для поисковой строки -->
+    <style name="CourseHubSearchInput" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">#24252A</item>
+        <item name="boxStrokeColor">@android:color/transparent</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="hintTextColor">#919295</item>
+        <item name="android:textColorHint">#919295</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="boxCornerRadiusTopStart">28dp</item>
+        <item name="boxCornerRadiusTopEnd">28dp</item>
+        <item name="boxCornerRadiusBottomStart">28dp</item>
+        <item name="boxCornerRadiusBottomEnd">28dp</item>
     </style>
 </resources>

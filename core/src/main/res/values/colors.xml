@@ -3,7 +3,7 @@
     <!-- Основные цвета из Figma -->
     <color name="background">#151515</color>
     <color name="input_background">#32333A</color>
-    <color name="hint_color">#12B956</color>
+    <color name="hint_color">#919295</color>
     <color name="primary_button">#12B956</color>
     <color name="white">#FFFFFF</color>
     <color name="text_primary">#F2F2F3</color>
