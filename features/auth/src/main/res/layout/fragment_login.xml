@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <!-- Заголовок Вход -->
+        <TextView
+            android:layout_width="328dp"
+            android:layout_height="36dp"
+            android:text="Вход"
+            android:textAlignment="textStart"
+            android:textColor="#F2F2F3"
+            android:textSize="28sp"
+            android:textStyle="normal"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginTop="48dp"
+            android:layout_marginBottom="32dp" />
+
+        <!-- Блок Email -->
+        <TextView
+            android:layout_width="328dp"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/CourseHubEditText"
+            android:layout_width="328dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="example@gmail.com"
+                android:textSize="14sp"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:paddingHorizontal="16dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Блок Пароль -->
+        <TextView
+            android:layout_width="328dp"
+            android:layout_height="wrap_content"
+            android:text="Пароль"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/CourseHubEditText"
+            android:layout_width="328dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Введите пароль"
+                android:textSize="14sp"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:paddingHorizontal="16dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Кнопка Входа -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/loginButton"
+            android:layout_width="328dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="16dp"
+            android:text="Вход"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:fontFamily="sans-serif-medium"
+            app:backgroundTint="#12B956"
+            app:cornerRadius="30dp" />
+
+        <!-- Нет аккаунта -->
+        <LinearLayout
+            android:layout_width="328dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Нету аккаунта?"
+                android:textColor="#F2F2F3"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/registerTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Регистрация"
+                android:textColor="#12B956"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginStart="4dp" />
+        </LinearLayout>
+
+        <!-- Забыли пароль -->
+        <TextView
+            android:id="@+id/forgotPasswordTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Забыл пароль"
+            android:textColor="#12B956"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="28dp" />
+
+        <!-- Разделительная линия -->
+        <View
+            android:layout_width="328dp"
+            android:layout_height="1dp"
+            android:background="#4D555E"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Кнопки социальных сетей -->
+        <LinearLayout
+            android:layout_width="328dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <!-- Кнопка VK -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                app:cardCornerRadius="30dp"
+                app:cardBackgroundColor="#2683ED">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_vk"
+                    android:scaleType="center"
+                    android:tint="@color/white" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- Кнопка Одноклассники -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                app:cardCornerRadius="30dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_odnoklassniki"
+                    android:scaleType="center"
+                    android:tint="@color/white"
+                    android:background="@drawable/gradient_odnoklassniki" />
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
