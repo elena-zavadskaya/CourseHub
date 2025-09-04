@@ -3,7 +3,6 @@ package com.example.coursehub
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupWithNavController
 import com.example.coursehub.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -13,18 +12,26 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(binding.root) // Устанавливаем layout первым!
 
-        // Настройка навигации
-        setupNavigation()
+        // Теперь можем работать с View
+        val destination = intent.getStringExtra("destination")
+        if (destination == "courses") {
+            navigateToCourses()
+        } else {
+            navigateToLogin()
+        }
     }
 
-    private fun setupNavigation() {
-        val navHostFragment = supportFragmentManager
-            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+    private fun navigateToCourses() {
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
+        navController.navigate(R.id.coursesFragment)
+    }
 
-        // Устанавливаем основной граф навигации
-        navController.setGraph(R.navigation.main_nav_graph)
+    private fun navigateToLogin() {
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+        navController.navigate(R.id.loginFragment)
     }
 }

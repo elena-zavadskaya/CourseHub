@@ -9,5 +9,4 @@
         android:name="com.example.auth.presentation.login.LoginFragment"
         android:label="LoginFragment" />
 
-    <!-- Добавьте другие фрагменты auth позже -->
 </navigation>

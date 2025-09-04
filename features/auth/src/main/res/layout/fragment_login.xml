@@ -38,18 +38,22 @@
         <com.google.android.material.textfield.TextInputLayout
             style="@style/CourseHubEditText"
             android:layout_width="328dp"
-            android:layout_height="48dp"
-            android:layout_marginBottom="16dp">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:hintEnabled="false">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/emailEditText"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="56dp"
                 android:hint="example@gmail.com"
+                android:textColor="@color/white"
+                android:textColorHint="#919295"
                 android:textSize="14sp"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
-                android:paddingHorizontal="16dp" />
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="16dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Блок Пароль -->
@@ -64,20 +68,25 @@
         <com.google.android.material.textfield.TextInputLayout
             style="@style/CourseHubEditText"
             android:layout_width="328dp"
-            android:layout_height="48dp"
-            android:layout_marginBottom="16dp">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:hintEnabled="false">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/passwordEditText"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="56dp"
                 android:hint="Введите пароль"
+                android:textColor="@color/white"
+                android:textColorHint="#919295"
                 android:textSize="14sp"
                 android:inputType="textPassword"
                 android:maxLines="1"
-                android:paddingHorizontal="16dp" />
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="16dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Остальная часть макета без изменений -->
         <!-- Кнопка Входа -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/loginButton"
@@ -145,6 +154,7 @@
 
             <!-- Кнопка VK -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/vkButton"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
@@ -156,12 +166,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/ic_vk"
-                    android:scaleType="center"
-                    android:tint="@color/white" />
+                    android:scaleType="center"/>
             </androidx.cardview.widget.CardView>
 
             <!-- Кнопка Одноклассники -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/odnoklassnikiButton"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
@@ -173,7 +183,6 @@
                     android:layout_height="match_parent"
                     android:src="@drawable/ic_odnoklassniki"
                     android:scaleType="center"
-                    android:tint="@color/white"
                     android:background="@drawable/gradient_odnoklassniki" />
             </androidx.cardview.widget.CardView>
         </LinearLayout>
