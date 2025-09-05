@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!-- Добавьте эти цвета -->
+    <color name="background_nav">#24252A</color>
+    <color name="border_nav">#4D555E</color>
+    <color name="text_primary">#F2F2F3</color>
+    <color name="text_secondary">#12B956</color>
+    <color name="icon_background_active">#32333A</color>
 </resources>

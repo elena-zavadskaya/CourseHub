@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/coursesFragment"
+        android:icon="@drawable/ic_courses_selector"
+        android:title="Главная" />
+    <item
+        android:id="@+id/favoritesFragment"
+        android:icon="@drawable/ic_favorites_selector"
+        android:title="Избранное" />
+    <item
+        android:id="@+id/accountFragment"
+        android:icon="@drawable/ic_account_selector"
+        android:title="Аккаунт" />
+</menu>
