@@ -42,6 +42,7 @@
 
             <!-- Дата (теперь слева) -->
             <LinearLayout
+                android:id="@+id/dateContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|start"
@@ -53,6 +54,7 @@
                 android:paddingVertical="4dp">
 
                 <TextView
+                    android:id="@+id/courseDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="22 Мая 2024"
@@ -63,6 +65,7 @@
 
             <!-- Рейтинг (теперь справа) -->
             <LinearLayout
+                android:id="@+id/ratingContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"
@@ -74,12 +77,14 @@
                 android:paddingVertical="4dp">
 
                 <ImageView
+                    android:id="@+id/starIcon"
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:src="@drawable/ic_star"
                     tools:ignore="ContentDescription" />
 
                 <TextView
+                    android:id="@+id/courseRating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
@@ -136,6 +141,7 @@
 
                 <!-- Цена курса -->
                 <LinearLayout
+                    android:id="@+id/priceContainer"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -143,6 +149,7 @@
                     android:gravity="center_vertical">
 
                     <TextView
+                        android:id="@+id/coursePrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="999"
@@ -153,6 +160,7 @@
                         android:fontWeight="500" />
 
                     <TextView
+                        android:id="@+id/courseCurrency"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="₽"
@@ -166,12 +174,14 @@
 
                 <!-- Кнопка "Подробнее" -->
                 <LinearLayout
+                    android:id="@+id/detailsContainer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical">
 
                     <TextView
+                        android:id="@+id/detailsText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Подробнее"
@@ -183,6 +193,7 @@
                         android:layout_marginEnd="4dp" />
 
                     <ImageView
+                        android:id="@+id/arrowIcon"
                         android:layout_width="16dp"
                         android:layout_height="16dp"
                         android:src="@drawable/ic_arrow_right"

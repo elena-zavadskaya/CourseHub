@@ -18,6 +18,7 @@
 
         <!-- Поисковая строка с собственным стилем -->
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/searchInputLayout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -27,17 +28,20 @@
             app:startIconTint="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/searchEditText"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Search courses..."
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 android:maxLines="1"
+                android:imeOptions="actionSearch"
                 android:paddingHorizontal="16dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Кнопка фильтра с круглым фоном без обводки -->
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/filterButton"
             android:layout_width="56dp"
             android:layout_height="56dp"
             app:cardCornerRadius="28dp"
@@ -46,6 +50,7 @@
             android:layout_marginTop="2dp">
 
             <ImageButton
+                android:id="@+id/filterImageButton"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_filter"
@@ -70,6 +75,7 @@
 
         <!-- Надпись справа -->
         <TextView
+            android:id="@+id/sortText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="По дате обновления"
@@ -79,12 +85,21 @@
 
         <!-- Иконка сортировки -->
         <ImageButton
+            android:id="@+id/sortButton"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/ic_sort"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:scaleType="center" />
     </LinearLayout>
+
+    <!-- ProgressBar для отображения загрузки -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
 
     <!-- RecyclerView для списка курсов -->
     <androidx.recyclerview.widget.RecyclerView

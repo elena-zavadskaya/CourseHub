@@ -11,7 +11,7 @@
 
     <fragment
         android:id="@+id/coursesFragment"
-        android:name="com.example.courses.presentation.list.CoursesFragment"
+        android:name="com.example.courses.presentation.list.presentation.CoursesFragment"
         android:label="CoursesFragment" />
 
 </navigation>
