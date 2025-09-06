@@ -12,12 +12,10 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/main_nav_graph" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+    <com.example.coursehub.CustomBottomNavigationView
         android:id="@+id/bottom_navigation"
-        style="@style/BottomNavigationStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:menu="@menu/bottom_nav_menu" />
+        android:layout_height="80dp"
+        android:layout_gravity="bottom" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

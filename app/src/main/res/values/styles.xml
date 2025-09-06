@@ -6,19 +6,22 @@
         <item name="itemTextAppearanceInactive">@style/BottomNavigationTextInactive</item>
         <item name="itemTextColor">@color/bottom_nav_text_tint</item>
         <item name="android:layout_height">64dp</item>
+        <item name="itemIconTint">@null</item>
+        <item name="itemBackground">@android:color/transparent</item>
+        <item name="itemRippleColor">@android:color/transparent</item>
     </style>
 
     <style name="BottomNavigationTextActive" parent="TextAppearance.AppCompat.Caption">
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textSize">12sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textColor">#F2F2F3</item>
     </style>
 
     <style name="BottomNavigationTextInactive" parent="TextAppearance.AppCompat.Caption">
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textSize">12sp</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textColor">#A0A0A0</item>
     </style>
 </resources>
