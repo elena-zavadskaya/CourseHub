@@ -1,4 +1,5 @@
-package com.example.courses.presentation.list.presentation
+// features/favorites/src/main/java/com/example/favorites/presentation/FavoritesAdapter.kt
+package com.example.favorites.presentation
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,16 +8,15 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.core.R
 import com.example.core.domain.model.Course
-import com.example.courses.R
 
-class CoursesAdapter(
+class FavoritesAdapter(
     private val onItemClick: (Course) -> Unit,
     private val onFavoriteClick: (Course, Boolean) -> Unit
-) : RecyclerView.Adapter<CoursesAdapter.CourseViewHolder>() {
+) : RecyclerView.Adapter<FavoritesAdapter.CourseViewHolder>() {
 
     private var courses = listOf<Course>()
-    private val favoriteStates = mutableMapOf<String, Boolean>()
 
     inner class CourseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val courseImage: ImageView = itemView.findViewById(R.id.courseImage)
@@ -29,9 +29,6 @@ class CoursesAdapter(
         private val favoriteButton: ImageButton = itemView.findViewById(R.id.favoriteButton)
 
         fun bind(course: Course) {
-            // Загрузка изображения
-            // Glide.with(itemView.context).load(course.imageUrl).into(courseImage)
-
             courseTitle.text = course.title
             courseDescription.text = course.description
             coursePrice.text = course.price.toString()
@@ -39,38 +36,15 @@ class CoursesAdapter(
             courseDate.text = course.date
             courseRating.text = course.rating.toString()
 
-            val isFavorite = favoriteStates[course.id] ?: course.isFavorite
-            favoriteStates[course.id] = isFavorite
-
-            val favoriteIcon = if (isFavorite) {
-                R.drawable.ic_favorite_filled
-            } else {
-                R.drawable.ic_favorite_outline
-            }
-            favoriteButton.setImageResource(favoriteIcon)
+            // Установка иконки избранного - всегда активная, так как это избранное
+            favoriteButton.setImageResource(R.drawable.ic_favorite_filled)
 
             itemView.setOnClickListener { onItemClick(course) }
 
             favoriteButton.setOnClickListener {
-                val newFavoriteState = !(favoriteStates[course.id] ?: course.isFavorite)
-                favoriteStates[course.id] = newFavoriteState
-
-                val newIcon = if (newFavoriteState) {
-                    R.drawable.ic_favorite_filled
-                } else {
-                    R.drawable.ic_favorite_outline
-                }
-                favoriteButton.setImageResource(newIcon)
-
-                onFavoriteClick(course, newFavoriteState)
+                onFavoriteClick(course, false) // false - удаление из избранного
             }
         }
-    }
-
-    fun revertFavoriteState(courseId: String) {
-        val previousState = favoriteStates[courseId] ?: return
-        favoriteStates[courseId] = !previousState
-        notifyItemChanged(courses.indexOfFirst { it.id == courseId })
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CourseViewHolder {

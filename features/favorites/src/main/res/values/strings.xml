@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="empty_favorites">Пустое состояние избранного</string>
+    <string name="no_favorites_yet">У вас пока нет избранных курсов</string>
+    <string name="add_courses_to_favorites">Добавляйте курсы в избранное, чтобы вернуться к ним позже</string>
+</resources>

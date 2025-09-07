@@ -24,7 +24,7 @@
 
     <fragment
         android:id="@+id/favoritesFragment"
-        android:name="com.example.favorites.FavoritesFragment"
+        android:name="com.example.favorites.presentation.FavoritesFragment"
         android:label="FavoritesFragment" />
 
     <fragment

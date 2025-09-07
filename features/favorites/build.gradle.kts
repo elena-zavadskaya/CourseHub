@@ -51,4 +51,7 @@ dependencies {
 
     // Для RecyclerView
     implementation("androidx.recyclerview:recyclerview:1.3.1")
+
+    // Koin
+    implementation("io.insert-koin:koin-android:3.4.3")
 }

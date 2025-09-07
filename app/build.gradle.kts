@@ -66,4 +66,7 @@ dependencies {
 
     // Gson
     implementation("com.google.code.gson:gson:2.8.9")
+
+    // DataStore
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
 }
