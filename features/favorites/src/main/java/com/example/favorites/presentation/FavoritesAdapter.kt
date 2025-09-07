@@ -1,4 +1,3 @@
-// features/favorites/src/main/java/com/example/favorites/presentation/FavoritesAdapter.kt
 package com.example.favorites.presentation
 
 import android.view.LayoutInflater
@@ -36,13 +35,12 @@ class FavoritesAdapter(
             courseDate.text = course.date
             courseRating.text = course.rating.toString()
 
-            // Установка иконки избранного - всегда активная, так как это избранное
             favoriteButton.setImageResource(R.drawable.ic_favorite_filled)
 
             itemView.setOnClickListener { onItemClick(course) }
 
             favoriteButton.setOnClickListener {
-                onFavoriteClick(course, false) // false - удаление из избранного
+                onFavoriteClick(course, false)
             }
         }
     }

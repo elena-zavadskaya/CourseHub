@@ -1,7 +1,6 @@
 package com.example.auth.data.repository
 
 import com.example.auth.domain.repository.AuthRepository
-import kotlinx.coroutines.delay
 
 class AuthRepositoryImpl : AuthRepository {
 
@@ -16,8 +15,6 @@ class AuthRepositoryImpl : AuthRepository {
     private var authToken: String? = null
 
     override suspend fun login(email: String, password: String): Boolean {
-        // Имитация сетевой задержки
-        delay(1000)
 
         return if (email == testUser.email && password == testUser.password) {
             authToken = "mock_jwt_token_${System.currentTimeMillis()}"
@@ -28,9 +25,7 @@ class AuthRepositoryImpl : AuthRepository {
     }
 
     override suspend fun register(email: String, password: String, name: String): Boolean {
-        // В реальном приложении здесь была бы регистрация через API
-        delay(1000)
-        return false // Пока не реализовано
+        return false
     }
 
     override fun isUserLoggedIn(): Boolean {

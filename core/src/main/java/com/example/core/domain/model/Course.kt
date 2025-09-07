@@ -1,4 +1,3 @@
-// core/src/main/java/com/example/core/domain/model/Course.kt
 package com.example.core.domain.model
 
 data class Course(
@@ -11,5 +10,5 @@ data class Course(
     val date: String,
     val rating: Float,
     val isFavorite: Boolean = false,
-    val publishDate: String // Добавляем поле для даты публикации
+    val publishDate: String
 )

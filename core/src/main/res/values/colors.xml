@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Основные цвета из Figma -->
+    <!-- Основные цвета -->
     <color name="background">#151515</color>
     <color name="input_background">#32333A</color>
     <color name="hint_color">#919295</color>

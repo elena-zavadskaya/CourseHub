@@ -1,4 +1,3 @@
-// core/src/main/java/com/example/core/data/repository/FavoriteRepository.kt
 package com.example.core.data.repository
 
 import kotlinx.coroutines.flow.Flow

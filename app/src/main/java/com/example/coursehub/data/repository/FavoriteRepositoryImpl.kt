@@ -8,7 +8,7 @@ import com.example.core.data.repository.FavoriteRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class FavoriteRepositoryImpl constructor(
+class FavoriteRepositoryImpl(
     private val dataStore: DataStore<Preferences>
 ) : FavoriteRepository {
 

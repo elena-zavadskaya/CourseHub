@@ -1,4 +1,4 @@
-package com.example.coursehub.data
+package com.example.coursehub.data.repository
 
 import com.example.coursehub.data.model.ApiCourse
 import com.example.core.data.repository.CourseRepository
@@ -6,13 +6,12 @@ import com.example.core.data.repository.FavoriteRepository
 import com.example.core.domain.model.Course
 import com.example.coursehub.data.api.CoursesApiService
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-class CourseRepositoryImpl constructor(
+class CourseRepositoryImpl(
     private val apiService: CoursesApiService,
     private val favoriteRepository: FavoriteRepository
 ) : CourseRepository {
@@ -65,10 +64,9 @@ class CourseRepositoryImpl constructor(
                 .map { apiCourse ->
                     apiCourse.toDomainModel(true)
                 }
-        }.distinctUntilChanged() // Добавляем distinctUntilChanged для оптимизации
+        }.distinctUntilChanged()
     }
 
-    // app/src/main/java/com/example/coursehub/data/CourseRepositoryImpl.kt
     private fun ApiCourse.toDomainModel(isFavorite: Boolean): Course {
         return Course(
             id = id.toString(),
@@ -80,7 +78,7 @@ class CourseRepositoryImpl constructor(
             date = formatDate(startDate),
             rating = rate.toFloat(),
             isFavorite = isFavorite,
-            publishDate = publishDate // Сохраняем оригинальную дату публикации
+            publishDate = publishDate
         )
     }
 

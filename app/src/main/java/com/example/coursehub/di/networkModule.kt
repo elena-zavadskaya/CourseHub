@@ -1,4 +1,3 @@
-// app/src/main/java/com/example/coursehub/di/networkModule.kt
 package com.example.coursehub.di
 
 import com.example.coursehub.data.api.CoursesApiService

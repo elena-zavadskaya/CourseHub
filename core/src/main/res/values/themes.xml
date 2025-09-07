@@ -21,7 +21,6 @@
         <item name="boxCornerRadiusTopEnd">30dp</item>
         <item name="boxCornerRadiusBottomStart">30dp</item>
         <item name="boxCornerRadiusBottomEnd">30dp</item>
-        <!-- Добавляем отступы для текста -->
         <item name="android:paddingTop">8dp</item>
         <item name="android:paddingBottom">8dp</item>
     </style>

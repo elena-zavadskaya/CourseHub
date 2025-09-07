@@ -36,7 +36,6 @@ android {
 dependencies {
     implementation(project(":core"))
 
-    // Используем прямые ссылки на зависимости
     implementation("androidx.fragment:fragment-ktx:1.6.1")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.4")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.4")
@@ -46,10 +45,10 @@ dependencies {
     implementation("com.google.android.material:material:1.10.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
-    // Для AdapterDelegates
+    // AdapterDelegates
     implementation("com.hannesdorfmann:adapterdelegates4:4.3.2")
 
-    // Для RecyclerView
+    // RecyclerView
     implementation("androidx.recyclerview:recyclerview:1.3.1")
 
     // Koin

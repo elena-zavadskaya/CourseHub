@@ -1,4 +1,3 @@
-// courses/src/main/java/com/example/courses/di/coursesModule.kt
 package com.example.courses.di
 
 import com.example.courses.presentation.list.presentation.CoursesViewModel

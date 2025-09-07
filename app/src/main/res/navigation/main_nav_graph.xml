@@ -32,7 +32,6 @@
         android:name="com.example.account.AccountFragment"
         android:label="AccountFragment" />
 
-    <!-- Глобальные действия для навигации -->
     <action
         android:id="@+id/action_global_coursesFragment"
         app:destination="@id/coursesFragment"

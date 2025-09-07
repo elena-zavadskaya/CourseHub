@@ -40,7 +40,7 @@
                 android:src="@drawable/ic_favorite_outline"
                 tools:ignore="ContentDescription" />
 
-            <!-- Дата (теперь слева) -->
+            <!-- Дата -->
             <LinearLayout
                 android:id="@+id/dateContainer"
                 android:layout_width="wrap_content"
@@ -63,7 +63,7 @@
                     android:fontFamily="sans-serif" />
             </LinearLayout>
 
-            <!-- Рейтинг (теперь справа) -->
+            <!-- Рейтинг -->
             <LinearLayout
                 android:id="@+id/ratingContainer"
                 android:layout_width="wrap_content"

@@ -1,4 +1,3 @@
-// features/favorites/src/main/java/com/example/favorites/di/favoritesModule.kt
 package com.example.favorites.di
 
 import com.example.favorites.presentation.FavoritesViewModel

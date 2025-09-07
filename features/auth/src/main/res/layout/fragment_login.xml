@@ -86,7 +86,6 @@
                 android:paddingVertical="16dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Остальная часть макета без изменений -->
         <!-- Кнопка Входа -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/loginButton"

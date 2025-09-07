@@ -6,7 +6,6 @@ import com.example.core.data.repository.CourseRepository
 import com.example.core.domain.model.Course
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
@@ -46,7 +45,6 @@ class FavoritesViewModel : ViewModel(), KoinComponent {
         viewModelScope.launch {
             try {
                 courseRepository.toggleFavorite(courseId, isFavorite)
-                // Обновляем локальное состояние
                 if (!isFavorite) {
                     _favorites.value = _favorites.value.filter { it.id != courseId }
                 }

@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.favorites.databinding.FragmentFavoritesBinding
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -54,7 +53,6 @@ class FavoritesFragment : Fragment() {
     }
 
     private fun setupObservers() {
-        // Наблюдаем за favorites
         lifecycleScope.launch {
             viewModel.favorites.collect { courses ->
                 adapter.submitList(courses)
@@ -62,11 +60,9 @@ class FavoritesFragment : Fragment() {
             }
         }
 
-        // Наблюдаем за isLoading
         lifecycleScope.launch {
             viewModel.isLoading.collect { isLoading ->
                 showLoading(isLoading)
-                // Если идет загрузка, скрываем другие элементы
                 if (isLoading) {
                     showContent(false)
                     showEmptyState(false)
@@ -74,7 +70,6 @@ class FavoritesFragment : Fragment() {
             }
         }
 
-        // Наблюдаем за error
         lifecycleScope.launch {
             viewModel.error.collect { error ->
                 error?.let { showError(it) }

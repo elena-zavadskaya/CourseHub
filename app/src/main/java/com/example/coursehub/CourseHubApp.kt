@@ -1,4 +1,3 @@
-// app/src/main/java/com/example/coursehub/CourseHubApp.kt
 package com.example.coursehub
 
 import android.app.Application

@@ -3,9 +3,7 @@ package com.example.coursehub
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
@@ -38,7 +36,6 @@ class MainActivity : AppCompatActivity(), CustomBottomNavigationView.OnItemSelec
 
         val bottomNavView = findViewById<CustomBottomNavigationView>(R.id.bottom_navigation)
 
-        // Добавляем элементы меню
         bottomNavView.addMenuItem(
             R.id.coursesFragment,
             R.drawable.ic_courses_inactive,
@@ -61,7 +58,6 @@ class MainActivity : AppCompatActivity(), CustomBottomNavigationView.OnItemSelec
         bottomNavView.buildMenu()
         bottomNavView.setOnItemSelectedListener(this)
 
-        // Обработка изменений навигации
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.loginFragment -> {
@@ -90,21 +86,16 @@ class MainActivity : AppCompatActivity(), CustomBottomNavigationView.OnItemSelec
             val item = menu.getItem(i)
             val isSelected = item.itemId == selectedItemId
 
-            // Находим view элемента меню
             val itemView = bottomNavView.findViewById<View>(item.itemId)
 
             if (itemView != null) {
-                // Удаляем стандартный фон (если есть)
                 itemView.background = null
 
-                // Ищем ImageView внутри элемента меню
                 val iconView = findIconView(itemView)
 
                 if (iconView != null) {
-                    // Устанавливаем или убираем наш кастомный фон вокруг иконки
                     if (isSelected) {
                         iconView.setBackgroundResource(R.drawable.bottom_nav_icon_bg)
-                        // Устанавливаем отступы для правильного размещения иконки
                         iconView.setPadding(8.dpToPx(), 8.dpToPx(), 8.dpToPx(), 8.dpToPx())
                     } else {
                         iconView.background = null
@@ -113,7 +104,6 @@ class MainActivity : AppCompatActivity(), CustomBottomNavigationView.OnItemSelec
                 }
             }
 
-            // Обновляем иконку
             item.icon = when (item.itemId) {
                 R.id.coursesFragment -> {
                     if (isSelected) ContextCompat.getDrawable(this, R.drawable.ic_courses_active)
@@ -134,7 +124,6 @@ class MainActivity : AppCompatActivity(), CustomBottomNavigationView.OnItemSelec
         bottomNavView.invalidate()
     }
 
-    // Вспомогательная функция для поиска ImageView (иконки) в hierarchy view
     private fun findIconView(view: View): ImageView? {
         if (view is ImageView) {
             return view
@@ -153,7 +142,6 @@ class MainActivity : AppCompatActivity(), CustomBottomNavigationView.OnItemSelec
         return null
     }
 
-    // Extension function для преобразования dp в px
     private fun Int.dpToPx(): Int {
         return (this * resources.displayMetrics.density).toInt()
     }

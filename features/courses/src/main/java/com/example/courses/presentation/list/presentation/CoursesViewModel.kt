@@ -1,4 +1,3 @@
-// courses/src/main/java/com/example/courses/presentation/list/presentation/CoursesViewModel.kt
 package com.example.courses.presentation.list.presentation
 
 import androidx.lifecycle.ViewModel
@@ -9,7 +8,6 @@ import com.example.core.domain.model.Course
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -28,7 +26,6 @@ class CoursesViewModel(
     private val _error = MutableStateFlow<String?>(null)
     val error: StateFlow<String?> get() = _error
 
-    // Флаг для отслеживания текущего состояния сортировки
     private var isSortedByDate = false
 
     init {
@@ -54,7 +51,6 @@ class CoursesViewModel(
         viewModelScope.launch {
             try {
                 courseRepository.toggleFavorite(courseId, isFavorite)
-                // Обновляем локальное состояние
                 _courses.value = _courses.value.map { course ->
                     if (course.id == courseId) course.copy(isFavorite = isFavorite) else course
                 }
@@ -84,7 +80,6 @@ class CoursesViewModel(
     }
 
     fun openSortOptions() {
-        // Реализация сортировки по дате публикации
         sortCoursesByPublishDate()
     }
 
@@ -92,10 +87,8 @@ class CoursesViewModel(
         val currentCourses = _courses.value.toMutableList()
 
         if (isSortedByDate) {
-            // Если уже отсортировано, возвращаем к исходному порядку
             loadCourses()
         } else {
-            // Сортируем по дате публикации в порядке убывания
             currentCourses.sortByDescending { course ->
                 try {
                     SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(course.publishDate)

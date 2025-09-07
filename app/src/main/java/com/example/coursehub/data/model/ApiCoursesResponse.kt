@@ -1,4 +1,3 @@
-// core/src/main/java/com/example/core/data/model/ApiCoursesResponse.kt
 package com.example.coursehub.data.model
 
 import com.google.gson.annotations.SerializedName

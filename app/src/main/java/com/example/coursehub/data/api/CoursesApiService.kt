@@ -1,4 +1,3 @@
-// app/src/main/java/com/example/coursehub/data/api/CoursesApiService.kt
 package com.example.coursehub.data.api
 
 import com.example.coursehub.data.model.ApiCoursesResponse

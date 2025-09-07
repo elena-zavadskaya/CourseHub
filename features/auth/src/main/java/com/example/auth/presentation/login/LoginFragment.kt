@@ -106,7 +106,6 @@ class LoginFragment : Fragment() {
     }
 
     private fun navigateToCourses() {
-        // Используем Navigator вместо прямого вызова Navigation Component
         navigator.navigateToCourses()
     }
 

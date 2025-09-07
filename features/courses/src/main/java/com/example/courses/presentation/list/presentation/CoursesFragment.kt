@@ -1,4 +1,3 @@
-// courses/src/main/java/com/example/courses/presentation/list/presentation/CoursesFragment.kt
 package com.example.courses.presentation.list.presentation
 
 import android.content.Context
@@ -12,7 +11,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.courses.databinding.FragmentCoursesBinding
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -96,12 +94,10 @@ class CoursesFragment : Fragment() {
             viewModel.openFilters()
         }
 
-        // Обработка нажатия на кнопку сортировки
         binding.sortButton.setOnClickListener {
             viewModel.openSortOptions()
         }
 
-        // Обработка нажатия на текст сортировки
         binding.sortText.setOnClickListener {
             viewModel.openSortOptions()
         }
