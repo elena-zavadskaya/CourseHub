@@ -68,6 +68,7 @@ class CourseRepositoryImpl constructor(
         }.distinctUntilChanged() // Добавляем distinctUntilChanged для оптимизации
     }
 
+    // app/src/main/java/com/example/coursehub/data/CourseRepositoryImpl.kt
     private fun ApiCourse.toDomainModel(isFavorite: Boolean): Course {
         return Course(
             id = id.toString(),
@@ -78,7 +79,8 @@ class CourseRepositoryImpl constructor(
             currency = "₽",
             date = formatDate(startDate),
             rating = rate.toFloat(),
-            isFavorite = isFavorite
+            isFavorite = isFavorite,
+            publishDate = publishDate // Сохраняем оригинальную дату публикации
         )
     }
 

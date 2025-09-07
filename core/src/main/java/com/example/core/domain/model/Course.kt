@@ -10,5 +10,6 @@ data class Course(
     val currency: String,
     val date: String,
     val rating: Float,
-    val isFavorite: Boolean = false
+    val isFavorite: Boolean = false,
+    val publishDate: String // Добавляем поле для даты публикации
 )

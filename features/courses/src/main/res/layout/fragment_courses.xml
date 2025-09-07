@@ -74,7 +74,7 @@
             android:layout_height="0dp"
             android:layout_weight="1" />
 
-        <!-- Надпись справа -->
+        <!-- Надпись справа - делаем кликабельной -->
         <TextView
             android:id="@+id/sortText"
             android:layout_width="wrap_content"
@@ -82,7 +82,9 @@
             android:text="По дате обновления"
             android:textColor="#12B956"
             android:textSize="14sp"
-            android:layout_marginEnd="8dp" />
+            android:layout_marginEnd="8dp"
+            android:clickable="true"
+            android:focusable="true" />
 
         <!-- Иконка сортировки -->
         <ImageButton

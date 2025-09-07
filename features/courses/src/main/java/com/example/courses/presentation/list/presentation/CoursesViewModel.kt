@@ -11,10 +11,12 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class CoursesViewModel(
     private val getCoursesInteractor: GetCoursesInteractor,
-    private val courseRepository: CourseRepository // Добавляем репозиторий
+    private val courseRepository: CourseRepository
 ) : ViewModel() {
 
     private val _courses = MutableStateFlow<List<Course>>(emptyList())
@@ -25,6 +27,9 @@ class CoursesViewModel(
 
     private val _error = MutableStateFlow<String?>(null)
     val error: StateFlow<String?> get() = _error
+
+    // Флаг для отслеживания текущего состояния сортировки
+    private var isSortedByDate = false
 
     init {
         loadCourses()
@@ -79,6 +84,28 @@ class CoursesViewModel(
     }
 
     fun openSortOptions() {
-        // Реализация открытия опций сортировки
+        // Реализация сортировки по дате публикации
+        sortCoursesByPublishDate()
+    }
+
+    private fun sortCoursesByPublishDate() {
+        val currentCourses = _courses.value.toMutableList()
+
+        if (isSortedByDate) {
+            // Если уже отсортировано, возвращаем к исходному порядку
+            loadCourses()
+        } else {
+            // Сортируем по дате публикации в порядке убывания
+            currentCourses.sortByDescending { course ->
+                try {
+                    SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(course.publishDate)
+                } catch (e: Exception) {
+                    null
+                }
+            }
+            _courses.value = currentCourses
+        }
+
+        isSortedByDate = !isSortedByDate
     }
 }
