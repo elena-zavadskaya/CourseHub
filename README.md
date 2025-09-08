@@ -17,13 +17,13 @@ CourseHub — это Android-приложение для агрегации об
 ## Скриншоты
 
 ### Экран авторизации
-![Экран авторизации](docs/screenshots/auth_screen.png)
+![Экран авторизации](docs/auth_screen.png)
 
 ### Главный экран
-![Главный экран](docs/screenshots/home_screen.png)
+![Главный экран](docs/home_screen.png)
 
 ### Экран избранных курсов
-![Экран избранных курсов](docs/screenshots/favorites_screen.png)
+![Экран избранных курсов](docs/favorites_screen.png)
 
 ## 2. Функциональность
 
