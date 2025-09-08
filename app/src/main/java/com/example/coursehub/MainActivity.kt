@@ -2,16 +2,12 @@ package com.example.coursehub
 
 import android.os.Bundle
 import android.view.View
-import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.coursehub.databinding.ActivityMainBinding
 import com.example.coursehub.navigation.AppNavigator
 import com.example.core.navigation.Navigator
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity(), CustomBottomNavigationView.OnItemSelectedListener {
@@ -77,73 +73,6 @@ class MainActivity : AppCompatActivity(), CustomBottomNavigationView.OnItemSelec
             R.id.favoritesFragment -> navigator.navigateToFavorites()
             R.id.accountFragment -> navigator.navigateToAccount()
         }
-    }
-
-    private fun updateMenuIcons(bottomNavView: BottomNavigationView, selectedItemId: Int) {
-        val menu = bottomNavView.menu
-
-        for (i in 0 until menu.size()) {
-            val item = menu.getItem(i)
-            val isSelected = item.itemId == selectedItemId
-
-            val itemView = bottomNavView.findViewById<View>(item.itemId)
-
-            if (itemView != null) {
-                itemView.background = null
-
-                val iconView = findIconView(itemView)
-
-                if (iconView != null) {
-                    if (isSelected) {
-                        iconView.setBackgroundResource(R.drawable.bottom_nav_icon_bg)
-                        iconView.setPadding(8.dpToPx(), 8.dpToPx(), 8.dpToPx(), 8.dpToPx())
-                    } else {
-                        iconView.background = null
-                        iconView.setPadding(0, 0, 0, 0)
-                    }
-                }
-            }
-
-            item.icon = when (item.itemId) {
-                R.id.coursesFragment -> {
-                    if (isSelected) ContextCompat.getDrawable(this, R.drawable.ic_courses_active)
-                    else ContextCompat.getDrawable(this, R.drawable.ic_courses_inactive)
-                }
-                R.id.favoritesFragment -> {
-                    if (isSelected) ContextCompat.getDrawable(this, R.drawable.ic_favorites_active)
-                    else ContextCompat.getDrawable(this, R.drawable.ic_favorites_inactive)
-                }
-                R.id.accountFragment -> {
-                    if (isSelected) ContextCompat.getDrawable(this, R.drawable.ic_account_active)
-                    else ContextCompat.getDrawable(this, R.drawable.ic_account_inactive)
-                }
-                else -> null
-            }
-        }
-
-        bottomNavView.invalidate()
-    }
-
-    private fun findIconView(view: View): ImageView? {
-        if (view is ImageView) {
-            return view
-        }
-
-        if (view is ViewGroup) {
-            for (i in 0 until view.childCount) {
-                val child = view.getChildAt(i)
-                val result = findIconView(child)
-                if (result != null) {
-                    return result
-                }
-            }
-        }
-
-        return null
-    }
-
-    private fun Int.dpToPx(): Int {
-        return (this * resources.displayMetrics.density).toInt()
     }
 
     override fun onSupportNavigateUp(): Boolean {

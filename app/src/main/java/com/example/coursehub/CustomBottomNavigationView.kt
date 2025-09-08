@@ -32,12 +32,12 @@ class CustomBottomNavigationView @JvmOverloads constructor(
     )
 
     init {
-        orientation = LinearLayout.HORIZONTAL
+        orientation = HORIZONTAL
         gravity = Gravity.CENTER
         setBackgroundResource(R.drawable.bottom_nav_background)
 
-        layoutParams = LinearLayout.LayoutParams(
-            LinearLayout.LayoutParams.MATCH_PARENT,
+        layoutParams = LayoutParams(
+            LayoutParams.MATCH_PARENT,
             88.dpToPx()
         )
     }
@@ -90,7 +90,7 @@ class CustomBottomNavigationView @JvmOverloads constructor(
 
     private fun createItemView(item: MenuItem, weight: Float): View {
         val itemLayout = FrameLayout(context).apply {
-            layoutParams = LinearLayout.LayoutParams(
+            layoutParams = LayoutParams(
                 0,
                 LayoutParams.WRAP_CONTENT,
                 weight
@@ -124,7 +124,7 @@ class CustomBottomNavigationView @JvmOverloads constructor(
         }
         itemLayout.addView(icon)
 
-        // Текст с отступом от иконки
+        // Текст
         val text = TextView(context).apply {
             layoutParams = FrameLayout.LayoutParams(
                 LayoutParams.WRAP_CONTENT,
