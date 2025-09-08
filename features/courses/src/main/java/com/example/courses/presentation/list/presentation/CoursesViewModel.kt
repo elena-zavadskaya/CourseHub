@@ -2,8 +2,7 @@ package com.example.courses.presentation.list.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.core.data.repository.CourseRepository
-import com.example.core.domain.interactor.GetCoursesInteractor
+import com.example.core.domain.interactor.CoursesInteractor
 import com.example.core.domain.model.Course
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -13,8 +12,7 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 
 class CoursesViewModel(
-    private val getCoursesInteractor: GetCoursesInteractor,
-    private val courseRepository: CourseRepository
+    private val coursesInteractor: CoursesInteractor
 ) : ViewModel() {
 
     private val _courses = MutableStateFlow<List<Course>>(emptyList())
@@ -35,7 +33,7 @@ class CoursesViewModel(
     fun loadCourses() {
         _isLoading.value = true
         viewModelScope.launch {
-            getCoursesInteractor()
+            coursesInteractor.getCourses()
                 .catch { e ->
                     _error.value = e.message
                     _isLoading.value = false
@@ -50,7 +48,7 @@ class CoursesViewModel(
     fun toggleFavorite(courseId: String, isFavorite: Boolean) {
         viewModelScope.launch {
             try {
-                courseRepository.toggleFavorite(courseId, isFavorite)
+                coursesInteractor.toggleFavorite(courseId, isFavorite)
                 _courses.value = _courses.value.map { course ->
                     if (course.id == courseId) course.copy(isFavorite = isFavorite) else course
                 }
@@ -63,7 +61,7 @@ class CoursesViewModel(
     fun searchCourses(query: String) {
         _isLoading.value = true
         viewModelScope.launch {
-            courseRepository.searchCourses(query)
+            coursesInteractor.searchCourses(query)
                 .catch { e ->
                     _error.value = e.message
                     _isLoading.value = false

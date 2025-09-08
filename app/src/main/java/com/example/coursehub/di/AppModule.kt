@@ -6,7 +6,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import com.example.core.data.repository.CourseRepository
 import com.example.core.data.repository.FavoriteRepository
-import com.example.core.domain.interactor.GetCoursesInteractor
+import com.example.core.domain.interactor.CoursesInteractor
 import com.example.coursehub.data.repository.CourseRepositoryImpl
 import com.example.coursehub.data.repository.FavoriteRepositoryImpl
 import com.example.core.navigation.Navigator
@@ -26,5 +26,5 @@ val appModule = module {
 
     single { provideApiService(get()) }
 
-    factory { GetCoursesInteractor(get()) }
+    factory { CoursesInteractor(get()) }
 }
